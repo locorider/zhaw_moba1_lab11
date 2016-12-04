@@ -12,6 +12,13 @@
 		B56D381F1DF43D5C005DCFD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56D381D1DF43D5C005DCFD3 /* Main.storyboard */; };
 		B56D38211DF43D5C005DCFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56D38201DF43D5C005DCFD3 /* Assets.xcassets */; };
 		B56D38241DF43D5C005DCFD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56D38221DF43D5C005DCFD3 /* LaunchScreen.storyboard */; };
+		B56D382C1DF43DC4005DCFD3 /* post-switzerland.txt in Resources */ = {isa = PBXBuildFile; fileRef = B56D382B1DF43DC4005DCFD3 /* post-switzerland.txt */; };
+		B56D38341DF44071005DCFD3 /* PostOfficeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D38331DF44071005DCFD3 /* PostOfficeStore.swift */; };
+		B56D38361DF4407B005DCFD3 /* PostOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D38351DF4407B005DCFD3 /* PostOffice.swift */; };
+		B56D38381DF44147005DCFD3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D38371DF44147005DCFD3 /* Address.swift */; };
+		B56D383A1DF441C3005DCFD3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D38391DF441C3005DCFD3 /* Contact.swift */; };
+		B5B9A6EE1DF44E6700651F0F /* PostOfficeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */; };
+		B5B9A6F01DF44F1F00651F0F /* PostOfficeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,14 @@
 		B56D38201DF43D5C005DCFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56D38231DF43D5C005DCFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56D38251DF43D5C005DCFD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B56D382B1DF43DC4005DCFD3 /* post-switzerland.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "post-switzerland.txt"; sourceTree = "<group>"; };
+		B56D38301DF43E07005DCFD3 /* zhaw_moba1_lab11.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zhaw_moba1_lab11.entitlements; sourceTree = "<group>"; };
+		B56D38331DF44071005DCFD3 /* PostOfficeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOfficeStore.swift; sourceTree = "<group>"; };
+		B56D38351DF4407B005DCFD3 /* PostOffice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOffice.swift; sourceTree = "<group>"; };
+		B56D38371DF44147005DCFD3 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		B56D38391DF441C3005DCFD3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOfficeTableCell.swift; sourceTree = "<group>"; };
+		B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOfficeTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +55,7 @@
 			children = (
 				B56D38181DF43D5C005DCFD3 /* zhaw_moba1_lab11 */,
 				B56D38171DF43D5C005DCFD3 /* Products */,
+				B56D382D1DF43E07005DCFD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +70,29 @@
 		B56D38181DF43D5C005DCFD3 /* zhaw_moba1_lab11 */ = {
 			isa = PBXGroup;
 			children = (
+				B56D38301DF43E07005DCFD3 /* zhaw_moba1_lab11.entitlements */,
+				B56D382B1DF43DC4005DCFD3 /* post-switzerland.txt */,
 				B56D38191DF43D5C005DCFD3 /* AppDelegate.swift */,
 				B56D381B1DF43D5C005DCFD3 /* ViewController.swift */,
 				B56D381D1DF43D5C005DCFD3 /* Main.storyboard */,
 				B56D38201DF43D5C005DCFD3 /* Assets.xcassets */,
 				B56D38221DF43D5C005DCFD3 /* LaunchScreen.storyboard */,
 				B56D38251DF43D5C005DCFD3 /* Info.plist */,
+				B56D38331DF44071005DCFD3 /* PostOfficeStore.swift */,
+				B56D38351DF4407B005DCFD3 /* PostOffice.swift */,
+				B56D38371DF44147005DCFD3 /* Address.swift */,
+				B56D38391DF441C3005DCFD3 /* Contact.swift */,
+				B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */,
+				B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */,
 			);
 			path = zhaw_moba1_lab11;
+			sourceTree = "<group>";
+		};
+		B56D382D1DF43E07005DCFD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +129,14 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = H6KE2M5F2L;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -124,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56D382C1DF43DC4005DCFD3 /* post-switzerland.txt in Resources */,
 				B56D38241DF43D5C005DCFD3 /* LaunchScreen.storyboard in Resources */,
 				B56D38211DF43D5C005DCFD3 /* Assets.xcassets in Resources */,
 				B56D381F1DF43D5C005DCFD3 /* Main.storyboard in Resources */,
@@ -137,8 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56D383A1DF441C3005DCFD3 /* Contact.swift in Sources */,
+				B5B9A6F01DF44F1F00651F0F /* PostOfficeTableView.swift in Sources */,
 				B56D381C1DF43D5C005DCFD3 /* ViewController.swift in Sources */,
+				B56D38361DF4407B005DCFD3 /* PostOffice.swift in Sources */,
 				B56D381A1DF43D5C005DCFD3 /* AppDelegate.swift in Sources */,
+				B56D38341DF44071005DCFD3 /* PostOfficeStore.swift in Sources */,
+				B5B9A6EE1DF44E6700651F0F /* PostOfficeTableCell.swift in Sources */,
+				B56D38381DF44147005DCFD3 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +348,7 @@
 				B56D382A1DF43D5C005DCFD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
