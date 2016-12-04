@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import CoreLocation
 
 class PostOffice {
-    let x: Double
-    let y: Double
+    let location: CLLocation
     var name: String?
     var brand: String?
     var amenity: String?
@@ -22,21 +22,17 @@ class PostOffice {
     var openingHours: String?
     var wheelChair = false
     
-    required init(x: Double, y: Double) {
-        self.x = x
-        self.y = y
+    required init(location: CLLocation) {
+        self.location = location
     }
     
-    func withinBounds(_ x: Double, y: Double, radius: Double) -> Bool {
-        let maxX = x + radius
-        let minX = x - radius
-        let minY = y - radius
-        let maxY = y + radius
-        
-        if (self.x >= minX && self.x <= maxX) {
-            return self.y >= minY && self.y <= maxY
-        }
-        
-        return false
+    func distance(location: CLLocation) -> Double {
+        return self.location.distance(from: location)
+    }
+    
+    func withinBounds(location: CLLocation, maxDistance: Double) -> Bool {
+        let distance = self.location.distance(from: location)
+        //print("Distance: \(distance), maxDistance: \(maxDistance)")
+        return distance <= maxDistance
     }
 }

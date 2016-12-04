@@ -15,10 +15,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     @IBOutlet weak var inputY: UITextField!
     @IBOutlet weak var tableView: PostOfficeTableView!
     
-    var filteredPostOffices: [PostOffice] = []
+    var filteredPostOffices: [SearchResult] = []
     let postOfficeStore = PostOfficeStore()
     let locationManager = CLLocationManager()
-    let textCellIdentifier = "textCell"
+    let textCellIdentifier = "tableCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.getlocationForUser()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,13 +40,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
 
     @IBAction func didClickBtnSearch(_ sender: Any) {
-        //let x = Double(inputX.text ?? "0")!
-        //let y = Double(inputY.text ?? "0")!
-        self.filterPostOffices(x: 0, y: 0)
+        if var strLat = inputX.text {
+            let lat = strLat.characters.count > 0 ? strLat : "0"
+            if var strLong = inputY.text {
+                let long = strLong.characters.count > 0 ? strLong : "0"
+                let location = CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
+                self.filterPostOffices(location)
+            }
+        }
     }
     
-    func filterPostOffices(x: Double, y: Double) {
-        self.filteredPostOffices = self.postOfficeStore.filter(x: x, y: y, distance: 5)
+    func filterPostOffices(_ location: CLLocation) {
+        self.filteredPostOffices = self.postOfficeStore.filter(fromLocation: location, distance: 5000)
         self.tableView.reloadData()
     }
     
@@ -52,22 +59,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         if CLLocationManager.locationServicesEnabled() {
             //Then check whether the user has granted you permission to get his location
             if CLLocationManager.authorizationStatus() == .notDetermined {
-                //Request permission
-                //Note: you can also ask for .requestWhenInUseAuthorization
                 locationManager.requestWhenInUseAuthorization()
             } else if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied {
-                //... Sorry for you. You can huff and puff but you are not getting any location
+                
             } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                locationManager.startUpdatingLocation()
+                locationManager.requestLocation()
             }
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
-        inputX.text = "\(location?.coordinate.longitude)"
-        inputY.text = "\(location?.coordinate.latitude)"
-        self.filterPostOffices(x: (location?.coordinate.longitude)!, y: (location?.coordinate.latitude)!)
+        let lat: Double = (location?.coordinate.latitude)!
+        let long: Double = (location?.coordinate.longitude)!
+        inputX.text = "\(lat)"
+        inputY.text = "\(long)"
+        print("Updating location \(lat) \(long)")
+        self.filterPostOffices(location!)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -80,11 +88,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.textCellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.textCellIdentifier, for: indexPath) as! PostOfficeTableCell
         let postOffice = self.filteredPostOffices[indexPath.row]
-        cell.textLabel?.text = postOffice.name ?? "No Name Provided"
         
+        let km = round(postOffice.distanceMeter) / 1000
+        
+        cell.lblName?.text = postOffice.postOffice.name ?? "No Name Provided"
+        cell.lblOpeningHours.text = postOffice.postOffice.openingHours ?? "No Opening Hours Provided"
+        cell.lblDistance.text = String(format: "%.3fkm", km)
         return cell
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
 }
 

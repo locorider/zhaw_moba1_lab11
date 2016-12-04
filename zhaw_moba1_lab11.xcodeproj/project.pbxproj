@@ -19,6 +19,7 @@
 		B56D383A1DF441C3005DCFD3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D38391DF441C3005DCFD3 /* Contact.swift */; };
 		B5B9A6EE1DF44E6700651F0F /* PostOfficeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */; };
 		B5B9A6F01DF44F1F00651F0F /* PostOfficeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */; };
+		B5B9A6F21DF4D7B100651F0F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B9A6F11DF4D7B100651F0F /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B56D38391DF441C3005DCFD3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOfficeTableCell.swift; sourceTree = "<group>"; };
 		B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOfficeTableView.swift; sourceTree = "<group>"; };
+		B5B9A6F11DF4D7B100651F0F /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				B56D38391DF441C3005DCFD3 /* Contact.swift */,
 				B5B9A6ED1DF44E6700651F0F /* PostOfficeTableCell.swift */,
 				B5B9A6EF1DF44F1F00651F0F /* PostOfficeTableView.swift */,
+				B5B9A6F11DF4D7B100651F0F /* SearchResult.swift */,
 			);
 			path = zhaw_moba1_lab11;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56D383A1DF441C3005DCFD3 /* Contact.swift in Sources */,
+				B5B9A6F21DF4D7B100651F0F /* SearchResult.swift in Sources */,
 				B5B9A6F01DF44F1F00651F0F /* PostOfficeTableView.swift in Sources */,
 				B56D381C1DF43D5C005DCFD3 /* ViewController.swift in Sources */,
 				B56D38361DF4407B005DCFD3 /* PostOffice.swift in Sources */,

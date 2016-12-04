@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import CoreLocation
 
 class PostOfficeStore {
     
     var postOffices: [PostOffice] = []
     
-    func filter(x: Double, y: Double, distance: Double) -> [PostOffice] {
-        return postOffices // no filtering for now
+    func filter(fromLocation: CLLocation, distance: Double) -> [SearchResult] {
+        let filtered = self.postOffices.filter { $0.withinBounds(location: fromLocation, maxDistance: distance) }
+        print("\(filtered.count) within \(distance) meters")
+        let searchResults = filtered.map { SearchResult(postOffice: $0, distanceMeter: $0.distance(location: fromLocation)) }
+        let sorted = searchResults.sorted { (one: SearchResult, two: SearchResult) -> Bool in
+            return one.distanceMeter < two.distanceMeter
+        }
+    
+        return sorted
     }
     
     func load(file: String, type: String) {
@@ -38,9 +46,10 @@ class PostOfficeStore {
         print("Parsing %s", line)
         let components = line.components(separatedBy: ",")
         if 2 < components.count {
-            let x = Double(components[0])
-            let y = Double(components[1])
-            let postOffice = PostOffice(x: x!, y: y!)
+            let latitude = Double(components[0])
+            let longitude = Double(components[1])
+            let location = CLLocation(latitude: latitude!, longitude: longitude!)
+            let postOffice = PostOffice(location: location)
             
             let withoutCoordinates = components[2..<components.count]
             self.parseInfoComponents(postOffice, lineWithoutCoordinates: withoutCoordinates)

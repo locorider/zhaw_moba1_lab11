@@ -11,4 +11,8 @@ import UIKit
 
 class PostOfficeTableCell : UITableViewCell {
     
+    @IBOutlet weak var lblName: UITextView!
+    @IBOutlet weak var lblOpeningHours: UITextView!
+    @IBOutlet weak var lblDistance: UITextView!
+    
 }
